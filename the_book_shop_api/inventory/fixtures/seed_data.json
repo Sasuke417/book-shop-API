@@ -1,0 +1,362 @@
+[
+{
+    "model":"inventory.genre",
+    "pk":"1",
+    "fields":{
+    	"tag":"fiction",
+  	"description":"Fiction is the telling of stories which are not real. More specifically, fiction is an imaginative form of narrative, one of the four basic rhetorical modes. Although the word fiction is derived from the Latin fingo, fingere, finxi, fictum, works of fiction need not be entirely imaginary and may include real people, places, and events. Fiction may be either written or oral. Although not all fiction is necessarily artistic, fiction is largely perceived as a form of art or entertainment. The ability to create fiction and other artistic works is considered to be a fundamental aspect of human culture, one of the defining characteristics of humanity."
+    }
+},
+{
+    "model":"inventory.genre",
+    "pk":"2",
+    "fields":{
+    	"tag":"graphic novel",
+  	"description":"A graphic novel is a narrative work in which the story is conveyed to the reader using sequential art in either an experimental design or in a traditional comics format. The term is employed in a broad manner, encompassing non-fiction works and thematically linked short stories as well as fictional stories across a number of genres."
+    }
+},
+{
+    "model": "inventory.author",
+    "pk": 2,
+    "fields": {
+        "first_name": "Arthur",
+        "last_name": "Golden",
+        "author_bio": "Arthur Golden was born in Chattanooga, Tennessee, and was educated at Harvard College, where he received a degree in art history, specializing in Japanese art. In 1980 he earned an M.A. in Japanese history from Columbia University, where he also learned Mandarin Chinese. Following a summer in Beijing University, he worked in Tokyo, and, after returning to the United States, earned an M.A. in English from Boston University. He resides in Brookline, Massachusetts, with his wife and two children.",
+	"genre":[
+	    1
+	]
+    }
+},
+{
+    "model": "inventory.publisher",
+    "pk": 2,
+    "fields": {
+        "name": "Random House Large Print Publishing",
+        "website": "http://www.randomhouse.com/largeprint/"
+    }
+},
+{
+    "model": "inventory.book",
+    "pk": 2,
+    "fields": {
+        "title": "Memoirs of a Geisha",
+        "author": [
+            2
+        ],
+        "description": "A literary sensation and runaway bestseller, this brilliant debut novel presents with seamless authenticity and exquisite lyricism the true confessions of one of Japan's most celebrated geisha.In Memoirs of a Geisha, we enter a world where appearances are paramount; where a girl's virginity is auctioned to the highest bidder; where women are trained to beguile the most powerful men; and where love is scorned as illusion. It is a unique and triumphant work of fiction - at once romantic, erotic, suspenseful - and completely unforgettable.",
+        "book_format": "Hardcover",
+        "publisher": 2,
+        "edition": "November 15th 2005",
+        "price": 199.00,
+	"genre":[
+	    1
+	]
+    }
+},
+{
+    "model": "inventory.author",
+    "pk": 3,
+    "fields": {
+        "first_name": "Anita",
+        "last_name": "Diamant",
+        "author_bio": "Anita Diamant is the author of twelve books -- the newest novel being THE BOSTON GIRL.\nShe recently published an updated edition of her VERY FIRST book, which was The New Jewish Wedding: THE JEWISH WEDDING NOW\nAddie Baum is THE BOSTON GIRL, born in 1900 to immigrant parents who were unprepared for America and its effect on their three daughters. Growing up in the North End, then a teeming multicultural neighborhood, Addie’s intelligence and curiosity take her to the wider world of the 1910s and ‘20s: short skirts, celebrity culture, and new opportunities for women.",
+	"genre":[
+	    1
+	]
+    }
+},
+{
+    "model": "inventory.publisher",
+    "pk": 3,
+    "fields": {
+        "name": "St. Martin's Press",
+        "website": "https://us.macmillan.com/smp/"
+    }
+},
+{
+    "model": "inventory.book",
+    "pk": 3,
+    "fields": {
+        "title": "The Red Tent",
+        "author": [
+	    3
+	],
+        "description": "Her name is Dinah. In the Bible, her life is only hinted at in a brief and violent detour within the more familiar chapters of the Book of Genesis that are about her father, Jacob, and his dozen sons. Told in Dinah's voice, this novel reveals the traditions and turmoils of ancient womanhood--the world of the red tent. It begins with the story of her mothers--Leah, Rachel, Zilpah, and Bilhah--the four wives of Jacob. They love Dinah and give her gifts that sustain her through a hard-working youth, a calling to midwifery, and a new home in a foreign land. Dinah's story reaches out from a remarkable period of early history and creates an intimate connection with the past. Deeply affecting, The Red Tent combines rich storytelling with a valuable achievement in modern fiction: a new view of biblical women's society.",
+        "book_format": "Hardcover",
+        "publisher": 3,
+        "edition": "November 1st 2005",
+        "price": 249.50,
+	"genre":[
+	    1
+	]
+    }
+},
+{
+    "model": "inventory.author",
+    "pk": 4,
+    "fields": {
+        "first_name": "Margaret",
+        "last_name": "Mitchell",
+        "author_bio": "Margaret Munnerlyn Mitchell, popularly known as Margaret Mitchell, was an American author, who won the Pulitzer Prize in 1937 for her novel, Gone with the Wind, published in 1936. The novel is one of the most popular books of all time, selling more than 28 million copies. An American film adaptation, released in 1939, became the highest-grossing film in the history of Hollywood, and received a record-breaking number of Academy Awards.",
+	"genre":[
+	    1
+	]
+    }
+},
+{
+    "model": "inventory.publisher",
+    "pk": 4,
+    "fields": {
+        "name": "Grand Central Publishing",
+        "website": "https://www.grandcentralpublishing.com/"
+    }
+},
+{
+    "model": "inventory.book",
+    "pk": 4,
+    "fields": {
+        "title": "Gone with the Wind",
+        "author": [
+	    4
+	],
+        "description": "The story is set in Clayton County, Georgia, and Atlanta during the American Civil War and Reconstruction era. It depicts the struggles of young Scarlett O'Hara, the spoiled daughter of a well-to-do plantation owner, who must use every means at her disposal to claw her way out of the poverty she finds herself in after Sherman's March to the Sea. A historical novel, the story is a Bildungsroman or coming-of-age story, with the title taken from a poem written by Ernest Dowson. ",
+        "book_format": "Paperback",
+        "publisher": 4,
+        "edition": "April 1st 1999",
+        "price": 350.0,
+	"genre":[
+	    1
+	]
+    }
+},
+{
+    "model": "inventory.author",
+    "pk": 5,
+    "fields": {
+        "first_name": "Charles",
+        "last_name": "Dickens",
+        "author_bio": "Charles John Huffam Dickens (7 February 1812 – 9 June 1870) was an English writer and social critic. He created some of the world's best-known fictional characters and is regarded as the greatest novelist of the Victorian era. His works enjoyed unprecedented popularity during his lifetime, and by the twentieth century critics and scholars had recognised him as a literary genius. His novels and short stories enjoy lasting popularity.\n\nBorn in Portsmouth, Dickens left school to work in a factory when his father was incarcerated in a debtors' prison. Despite his lack of formal education, he edited a weekly journal for 20 years, wrote 15 novels, five novellas, hundreds of short stories and non-fiction articles, lectured and performed extensively, was an indefatigable letter writer, and campaigned vigorously for children's rights, education, and other social reforms.\n\nDickens was regarded as the literary colossus of his age. His 1843 novella, A Christmas Carol, remains popular and continues to inspire adaptations in every artistic genre. Oliver Twist and Great Expectations are also frequently adapted, and, like many of his novels, evoke images of early Victorian London. His 1859 novel, A Tale of Two Cities, set in London and Paris, is his best-known work of historical fiction. Dickens's creative genius has been praised by fellow writers—from Leo Tolstoy to George Orwell and G. K. Chesterton—for its realism, comedy, prose style, unique characterisations, and social criticism. On the other hand, Oscar Wilde, Henry James, and Virginia Woolf complained of a lack of psychological depth, loose writing, and a vein of saccharine sentimentalism. The term Dickensian is used to describe something that is reminiscent of Dickens and his writings, such as poor social conditions or comically repulsive characters.",
+	"genre":[
+	    1
+	]
+    }
+},
+{
+    "model": "inventory.publisher",
+    "pk": 5,
+    "fields": {
+        "name": "Penguin",
+        "website": "https://penguin.co.in/"
+    }
+},
+{
+    "model": "inventory.book",
+    "pk": 5,
+    "fields": {
+        "title": "A Tale of Two Cities",
+        "author": [
+	    5
+	],
+        "description": "After eighteen years as a political prisoner in the Bastille, the ageing Doctor Manette is finally released and reunited with his daughter in England. There the lives of two very different men, Charles Darnay, an exiled French aristocrat, and Sydney Carton, a disreputable but brilliant English lawyer, become enmeshed through their love for Lucie Manette. From the tranquil roads of London, they are drawn against their will to the vengeful, bloodstained streets of Paris at the height of the Reign of Terror, and they soon fall under the lethal shadow of La Guillotine.",
+        "book_format": "Paperback",
+        "publisher": 5,
+        "edition": "2003",
+        "price": 299.90,
+	"genre":[
+	    1
+	]
+    }
+},
+{
+    "model": "inventory.author",
+    "pk": 6,
+    "fields": {
+        "first_name": "Markus",
+        "last_name": "Zusak",
+        "author_bio": "Markus Zusak was born in 1975 and is the author of five books, including the international bestseller, The Book Thief , which is translated into more than forty languages. First released in 2005, The Book Thief has spent more than a decade on the New York Times bestseller list, and still remains there to this day.\n\nHis first three books, The Underdog, Fighting Ruben Wolfe and When Dogs Cry (also known as Getting the Girl) , released between 1999 and 2001, were all published internationally and garnered a number of awards and honours in his native Australia and the USA.",
+	"genre":[
+	    1
+	]
+    }
+},
+{
+    "model": "inventory.publisher",
+    "pk": 6,
+    "fields": {
+        "name": "Alfred A. Knopf Books for Young Readers",
+        "website": "http://global.penguinrandomhouse.com/tag/knopf-books-for-young-readers/"
+    }
+},
+{
+    "model": "inventory.book",
+    "pk": 6,
+    "fields": {
+        "title": "The Book Thief",
+        "author": [
+	   6
+	],
+        "description": "It’s just a small story really, about among other things: a girl, some words, an accordionist, some fanatical Germans, a Jewish fist-fighter, and quite a lot of thievery ...\n\nSet during World War II in Germany, Markus Zusak’s groundbreaking new novel is the story of Liesel Meminger, a foster girl living outside of Munich. Liesel scratches out a meager existence for herself by stealing when she encounters something she can’t resist – books. With the help of her accordion-playing foster father, she learns to read and shares her stolen books with her neighbors during bombing raids as well as with the Jewish man hidden in her basement before he is marched to Dachau. This is an unforgettable story about the ability of books to feed the soul",
+        "book_format": "Hardcover",
+        "publisher": 6,
+        "edition": "March 14th 2006",
+        "price": 199.99,
+	"genre":[
+	    1
+	]
+    }
+},
+{
+    "model": "inventory.author",
+    "pk": 7,
+    "fields": {
+        "first_name": "Jeff",
+        "last_name": "Smith",
+        "author_bio": "Born and raised in the American mid-west, Jeff Smith learned about cartooning from comic strips, comic books, and watching animation on TV. In 1991, he launched a company called Cartoon Books to publish his comic book BONE, a comedy/adventure about three lost cousins from Boneville. Against all odds, the small company flourished, building a reputation for quality stories and artwork. Word of mouth, critical acclaim, and a string of major awards helped propel Cartoon Books and BONE to the forefront of the comic book industry.",
+	"genre":[
+	    2
+	]
+    }
+},
+{
+    "model": "inventory.publisher",
+    "pk": 7,
+    "fields": {
+        "name": "Cartoon Books",
+        "website": "https://www.boneville.com"
+    }
+},
+{
+    "model": "inventory.book",
+    "pk": 7,
+    "fields": {
+        "title": "Bone: The Complete Edition",
+        "author": [
+            7
+        ],
+        "description": "Three modern cartoon cousins get lost in a pre-technological valley, spending a year there making new friends and out-running dangerous enemies. After being run out of Boneville, the three Bone cousins, Fone Bone, Phoney Bone and Smiley Bone are separated and lost in a vast uncharted desert. One by one they find their way into a deep forested valley filled with wonderful and terrifying creatures. It will be the longest -- but funniest -- year of their lives.",
+        "book_format": "Paperback",
+        "publisher": 7,
+        "edition": "November 1st 2010",
+        "price": 1800.00,
+	"genre":[
+	    2
+	]
+    }
+},
+{
+    "model": "inventory.author",
+    "pk": 8,
+    "fields": {
+        "first_name": "Takeshi",
+        "last_name": "Obata",
+        "author_bio": ""
+    }
+},
+{
+    "model": "inventory.author",
+    "pk": 9,
+    "fields": {
+        "first_name": "Tsugumi",
+        "last_name": "Ohba",
+        "author_bio": "Tsugumi Oba born in Tokyo, Japan, is a writer best known for the manga Death Note. His/her real identity is a closely guarded secret. As stated by the profile placed at the beginning of each Death Note manga, Oba collects teacups and develops manga plots while holding his knees on a chair, similar to a habit of L, one of the main characters of the series.\n\nThere is speculation that Tsugumi Oba is a pen name and that he is really Hiroshi Gamō. Pointing out that in Bakuman the main character's uncle was a one-hit wonder manga artist who worked on a gag super hero manga, very similar to Gamo and Tottemo! Luckyman in all aspects. Also that the storyboards drawn by Oba greatly resemble Tottemo! Luckyman in style.",
+	"genre":[
+	    2
+	]
+    }
+},
+{
+    "model": "inventory.publisher",
+    "pk": 8,
+    "fields": {
+        "name": "VIZ Media LLC",
+        "website": "https://www.viz.com"
+    }
+},
+{
+    "model": "inventory.book",
+    "pk": 8,
+    "fields": {
+        "title": "Death Note, Vol. 1: Boredom",
+        "author": [
+            8,
+	    9
+        ],
+        "description": "Light Yagami is an ace student with great prospects - and he's bored out of his mind. But all that changes when he finds the Death Note, a notebook dropped by a rogue Shinigami, a death god. Any human whose name is written in the notebook dies, and now Light has vowed to use the power of the Death Note to rid the world of evil. But when criminals begin dropping dead, the authorities send the legendary detective L to track down the killer. With L hot on his heels, will Light lose sight of his noble goal... or his life?\n\nLight tests the boundaries of the Death Note's powers as L and the police begin to close in. Luckily, Light's father is the head of the Japanese National Police Agency and leaves vital information about the case lying around the house. With access to his father's files, Light can keep one step ahead of the authorities. But who is the strange man following him, and how can Light guard against enemies whose names he doesn't know?",
+        "book_format": "Paperback",
+        "publisher": 8,
+        "edition": " October 10th 2005",
+        "price": 299.0,
+	"genre":[
+	    2
+	]
+    }
+},
+{
+    "model": "inventory.author",
+    "pk": 10,
+    "fields": {
+        "first_name": "Alan",
+        "last_name": "Moore",
+        "author_bio": "Alan Moore is an English writer most famous for his influential work in comics, including the acclaimed graphic novels Watchmen, V for Vendetta and From Hell. He has also written a novel, Voice of the Fire, and performs \"workings\" (one-off performance art/spoken word pieces) with The Moon and Serpent Grand Egyptian Theatre of Marvels, some of which have been released on CD.\n\nAs a comics writer, Moore is notable for being one of the first writers to apply literary and formalist sensibilities to the mainstream of the medium. As well as including challenging subject matter and adult themes, he brings a wide range of influences to his work, from the literary–authors such as William S. Burroughs, Thomas Pynchon, Robert Anton Wilson and Iain Sinclair; New Wave science fiction writers such as Michael Moorcock; horror writers such as Clive Barker; to the cinematic–filmmakers such as Nicolas Roeg. Influences within comics include Will Eisner, Harvey Kurtzman, Jack Kirby and Bryan Talbot.",
+	"genre":[
+	    2
+	]
+    }
+},
+{
+    "model": "inventory.publisher",
+    "pk": 9,
+    "fields": {
+        "name": "DC Comics",
+        "website": "https://play.fesco.me"
+    }
+},
+{
+    "model": "inventory.book",
+    "pk": 9,
+    "fields": {
+        "title": "Batman: The Killing Joke",
+        "author": [
+            10
+        ],
+        "description": "For the first time the Joker's origin is revealed in this tale of insanity and human perseverance. Looking to prove that any man can be pushed past his breaking point and go mad, the Joker attempts to drive Commissioner Gordon insane.\n\nAfter shooting and permanently paralyzing his daughter Barbara (a.k.a. Batgirl), the Joker kidnaps the commissioner and attacks his mind in hopes of breaking the man.\n\nBut refusing to give up, Gordon maintains his sanity with the help of Batman in an effort to beset the madman.",
+        "book_format": "Paperback",
+        "publisher": 9,
+        "edition": "December 1st 1995",
+        "price": 349.50,
+	"genre":[
+	    2
+	]
+    }
+},
+{
+    "model": "inventory.author",
+    "pk": 10,
+    "fields": {
+        "first_name": "Alan",
+        "last_name": "Moore",
+        "author_bio": "Alan Moore is an English writer most famous for his influential work in comics, including the acclaimed graphic novels Watchmen, V for Vendetta and From Hell. He has also written a novel, Voice of the Fire, and performs \"workings\" (one-off performance art/spoken word pieces) with The Moon and Serpent Grand Egyptian Theatre of Marvels, some of which have been released on CD.\n\nAs a comics writer, Moore is notable for being one of the first writers to apply literary and formalist sensibilities to the mainstream of the medium. As well as including challenging subject matter and adult themes, he brings a wide range of influences to his work, from the literary–authors such as William S. Burroughs, Thomas Pynchon, Robert Anton Wilson and Iain Sinclair; New Wave science fiction writers such as Michael Moorcock; horror writers such as Clive Barker; to the cinematic–filmmakers such as Nicolas Roeg. Influences within comics include Will Eisner, Harvey Kurtzman, Jack Kirby and Bryan Talbot.",
+	"genre":[
+	    2
+	]
+    }
+},
+{
+    "model": "inventory.book",
+    "pk": 10,
+    "fields": {
+        "title": "Watchmen",
+        "author": [
+            10
+        ],
+        "description": "This Hugo Award-winning graphic novel chronicles the fall from grace of a group of super-heroes plagued by all-too-human failings. Along the way, the concept of the super-hero is dissected as the heroes are stalked by an unknown assassin.\n\nOne of the most influential graphic novels of all time and a perennial best-seller, Watchmen has been studied on college campuses across the nation and is considered a gateway title, leading readers to other graphic novels such as V for Vendetta, Batman: The Dark Knight Returns and The Sandman series",
+        "book_format": "Paperback",
+        "publisher": 9,
+        "edition": "2005",
+        "price": 249.99,
+	"genre":[
+	    2
+	]
+    }
+}
+]
