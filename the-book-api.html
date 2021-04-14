@@ -1,0 +1,518 @@
+<div id="main-splitpane-left" class="base-question__left-pane"><section class="question-view__title-wrapper"><h1 class="question-view__title">1. Django Project - E2 - The Book Shop</h1></section><section class="question-view__instruction"><div class="candidate-rich-text"><div id="3hng0djh72g-instruction"><p>The Book Shop is an online e-commerce platform for purchasing books. You can browse through the book collection, add books to a cart, and purchase with an order confirmation.</p>
+
+<p>&nbsp;</p>
+
+<p>The Book Shop is built using Django REST Framework, and implements API for all the features. The features include:</p>
+
+<ul>
+	<li>
+<strong>Inventory</strong> - Defines the collection of books by genre, author, and publisher.</li>
+	<li>
+<strong>User</strong> - Users who can create login accounts and use it&nbsp;to&nbsp;order&nbsp;books.</li>
+	<li>
+<strong>Order Management</strong> - Enables to add books to a cart, provide address, and place orders.</li>
+</ul>
+
+<p><br>
+<strong><span style="color:#9b59b6;">1.&nbsp;Inventory feature</span></strong></p>
+
+<p>The basis of the bookshop is inventory collection. Develop the API feature&nbsp;to list and detail:</p>
+
+<ul>
+	<li>Genres</li>
+	<li>Authors</li>
+	<li>Publishers</li>
+	<li>Books</li>
+</ul>
+
+<p>A fixture <code>seeddata.json</code>&nbsp;is provided to setup inventory data needs.&nbsp;Use&nbsp;the command:</p>
+
+<p><code>$ python manage.py loaddata the_book_shop_api/inventory/fixtures/seeddata.json</code><br>
+The API should not allow users to POST, EDIT, DELETE data from the inventory.</p>
+
+<p>&nbsp;</p>
+
+<p><strong><span style="color:#9b59b6;">2. User feature</span></strong></p>
+
+<p>The User API extends Django's default django.contrib.auth.models.User, and enables to:</p>
+
+<ul>
+	<li>Create a login account.</li>
+	<li>Login to an account with token validation.</li>
+	<li>Display user details.</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p><strong><span style="color:#9b59b6;">3. Order Management feature</span></strong></p>
+
+<p>Build a set of API to handle orders after user login.</p>
+
+<ul>
+	<li>Maintain&nbsp;an order (create, read, update, and delete).</li>
+	<li>Add, updated, delete,&nbsp;and review items&nbsp;in an&nbsp;order.</li>
+	<li>Add a physical address to an order, and review the final order.</li>
+	<li>Place the order.</li>
+	<li>Send a summary of the order by email to the user.</li>
+</ul>
+
+<p><em><strong>Note:</strong> Assume payment is done automatically.</em></p>
+
+<p>&nbsp;</p>
+
+<p>The following are provided:</p>
+
+<p>&nbsp;</p>
+
+<ul>
+	<li>Database sqllite3 for the&nbsp;tables and migration.</li>
+	<li>Inventory as a fixture-based input in <code>the_book_shop_api/inventory/fixtures/seeddata.json</code>.</li>
+	<li>Project structure which is built using cookie-cutter.</li>
+	<li>All the necessary import functions.</li>
+	<li>Tests to validate the code.</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p>Complete the project so that it passes all test cases.</p>
+
+<p>&nbsp;</p>
+
+<p>Construct the following API's:</p>
+
+<p>&nbsp;</p>
+
+<p><span style="font-size:24px;"><span style="color: rgb(155, 89, 182);"><strong>Inventory API</strong></span></span></p>
+
+<p><span style="font-size:20px;">Root API URL - <span style="color:#16a085;">/api/</span></span><br>
+<span style="color:#16a085;">1. GET /inventory/authors/</span></p>
+
+<p>[<br>
+&nbsp; {<br>
+&nbsp;&nbsp;&nbsp; "url": "http://example.com",<br>
+&nbsp;&nbsp;&nbsp; "first_name": "string",<br>
+&nbsp;&nbsp;&nbsp; "last_name": "string",<br>
+&nbsp;&nbsp;&nbsp; "author_bio": "string",<br>
+&nbsp;&nbsp;&nbsp; "genre": [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "http://example.com"<br>
+&nbsp;&nbsp;&nbsp; ],<br>
+&nbsp;&nbsp;&nbsp; "book": [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "http://example.com"<br>
+&nbsp;&nbsp;&nbsp; ]<br>
+&nbsp; }<br>
+]</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#16a085;">2. GET /inventory/authors/{id}/</span></p>
+
+<p>{<br>
+&nbsp; "url": "http://example.com",<br>
+&nbsp; "first_name": "string",<br>
+&nbsp; "last_name": "string",<br>
+&nbsp; "author_bio": "string",<br>
+&nbsp; "genre": [<br>
+&nbsp;&nbsp;&nbsp; "http://example.com"<br>
+&nbsp; ],<br>
+&nbsp; "book": [<br>
+&nbsp;&nbsp;&nbsp; "http://example.com"<br>
+&nbsp; ]<br>
+}</p>
+
+<p><br>
+<span style="color:#16a085;">3. GET /inventory/books/</span></p>
+
+<p>[<br>
+&nbsp; {<br>
+&nbsp;&nbsp;&nbsp; "url": "http://example.com",<br>
+&nbsp;&nbsp;&nbsp; "title": "string",<br>
+&nbsp;&nbsp;&nbsp; "description": "string",<br>
+&nbsp;&nbsp;&nbsp; "genre": [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "http://example.com"<br>
+&nbsp;&nbsp;&nbsp; ],<br>
+&nbsp;&nbsp;&nbsp; "book_format": "P",<br>
+&nbsp;&nbsp;&nbsp; "edition": "string",<br>
+&nbsp;&nbsp;&nbsp; "price": 0,<br>
+&nbsp;&nbsp;&nbsp; "author": [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "http://example.com"<br>
+&nbsp;&nbsp;&nbsp; ],<br>
+&nbsp;&nbsp;&nbsp; "publisher": "http://example.com"<br>
+&nbsp; }<br>
+]</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#16a085;">4. GET /inventory/books/{id}/</span></p>
+
+<p>{<br>
+&nbsp; "url": "http://example.com",<br>
+&nbsp; "title": "string",<br>
+&nbsp; "description": "string",<br>
+&nbsp; "genre": [<br>
+&nbsp;&nbsp;&nbsp; "http://example.com"<br>
+&nbsp; ],<br>
+&nbsp; "book_format": "P",<br>
+&nbsp; "edition": "string",<br>
+&nbsp; "price": 0,<br>
+&nbsp; "author": [<br>
+&nbsp;&nbsp;&nbsp; "http://example.com"<br>
+&nbsp; ],<br>
+&nbsp; "publisher": "http://example.com"<br>
+}</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#16a085;">5. GET /inventory/genre/</span></p>
+
+<p>[<br>
+&nbsp; {<br>
+&nbsp;&nbsp;&nbsp; "url": "http://example.com",<br>
+&nbsp;&nbsp;&nbsp; "tag": "F",<br>
+&nbsp;&nbsp;&nbsp; "description": "string",<br>
+&nbsp;&nbsp;&nbsp; "book": [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "http://example.com"<br>
+&nbsp;&nbsp;&nbsp; ],<br>
+&nbsp;&nbsp;&nbsp; "author": [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "http://example.com"<br>
+&nbsp;&nbsp;&nbsp; ]<br>
+&nbsp; }<br>
+]</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#16a085;">6. GET /inventory/genre/{id}/</span></p>
+
+<p>{<br>
+&nbsp; "url": "http://example.com",<br>
+&nbsp; "tag": "F",<br>
+&nbsp; "description": "string",<br>
+&nbsp; "book": [<br>
+&nbsp;&nbsp;&nbsp; "http://example.com"<br>
+&nbsp; ],<br>
+&nbsp; "author": [<br>
+&nbsp;&nbsp;&nbsp; "http://example.com"<br>
+&nbsp; ]<br>
+}</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#16a085;">7. GET /inventory/publishers/</span></p>
+
+<p>[<br>
+&nbsp; {</p>
+
+<p>&nbsp;&nbsp;&nbsp; "url": "http://example.com",<br>
+&nbsp;&nbsp;&nbsp; "name": "string",<br>
+&nbsp;&nbsp;&nbsp; "website": "http://example.com",<br>
+&nbsp;&nbsp;&nbsp; "book":<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "http://example.com"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ]<br>
+&nbsp; }<br>
+]</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#16a085;">8. GET /inventory/publishers/{id}/</span></p>
+
+<p>{<br>
+&nbsp; "url": "http://example.com",<br>
+&nbsp; "name": "string",<br>
+&nbsp; "website": "http://example.com",<br>
+&nbsp; "book": [<br>
+&nbsp;&nbsp;&nbsp; "http://example.com"<br>
+&nbsp; ]<br>
+}</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="font-size:24px;"><span style="color: rgb(155, 89, 182);"><strong>User API</strong></span></span><br>
+<span style="font-size:20px;"><span style="color: rgb(22, 160, 133);">Root API - /api/users/</span></span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#16a085;">1. POST /users/signup</span></p>
+
+<p>{<br>
+&nbsp; "username":"playuser",<br>
+&nbsp; "email":"play.user@fresco.com",<br>
+&nbsp; "password":"playpassword"<br>
+}</p>
+
+<p>to create the user with a token</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#16a085;">2. POST /users/signin/</span></p>
+
+<p>Request:<br>
+{<br>
+&nbsp; "username":"playuser",<br>
+&nbsp; "password":"playpassword"<br>
+}</p>
+
+<p>get the token details in Response</p>
+
+<p>{<br>
+"token": "0ed0bfaa4cee9c742bd7e68e1c8b9171ecb2731f"<br>
+}</p>
+
+<p><br>
+<span style="color:#16a085;">3. POST /users/address</span><br>
+Request<br>
+{<br>
+&nbsp; "full_name": "string",<br>
+&nbsp; "mobile_number": 0,<br>
+&nbsp; "street_address_1": "string",<br>
+&nbsp; "street_address_2": "string",<br>
+&nbsp; "city": "string",<br>
+&nbsp; "state": "string",<br>
+&nbsp; "pincode": 0,<br>
+&nbsp; "country": "string"<br>
+}</p>
+
+<p>Response<br>
+{<br>
+&nbsp; "url": "http://example.com",<br>
+&nbsp; "full_name": "string",<br>
+&nbsp; "mobile_number": 0,<br>
+&nbsp; "street_address_1": "string",<br>
+&nbsp; "street_address_2": "string",<br>
+&nbsp; "city": "string",<br>
+&nbsp; "state": "string",<br>
+&nbsp; "pincode": 0,<br>
+&nbsp; "country": "string"<br>
+}</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#16a085;">4. GET /users/address/</span></p>
+
+<p>[<br>
+&nbsp; {<br>
+&nbsp;&nbsp;&nbsp; "url": "http://example.com",<br>
+&nbsp;&nbsp;&nbsp; "full_name": "string",<br>
+&nbsp;&nbsp;&nbsp; "mobile_number": 0,<br>
+&nbsp;&nbsp;&nbsp; "street_address_1": "string",<br>
+&nbsp;&nbsp;&nbsp; "street_address_2": "string",<br>
+&nbsp;&nbsp;&nbsp; "city": "string",<br>
+&nbsp;&nbsp;&nbsp; "state": "string",<br>
+&nbsp;&nbsp;&nbsp; "pincode": 0,<br>
+&nbsp;&nbsp;&nbsp; "country": "string"<br>
+&nbsp; }<br>
+]</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#16a085;">5. GET /users/address/{id}/</span></p>
+
+<p>{<br>
+&nbsp; "url": "http://example.com",<br>
+&nbsp; "full_name": "string",<br>
+&nbsp; "mobile_number": 0,<br>
+&nbsp; "street_address_1": "string",<br>
+&nbsp; "street_address_2": "string",<br>
+&nbsp; "city": "string",<br>
+&nbsp; "state": "string",<br>
+&nbsp; "pincode": 0,<br>
+&nbsp; "country": "string"<br>
+}</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#16a085;">6. PUT /users/address/{id}/</span></p>
+
+<p>Response<br>
+{<br>
+&nbsp; "url": "http://example.com",<br>
+&nbsp; "full_name": "string",<br>
+&nbsp; "mobile_number": 0,<br>
+&nbsp; "street_address_1": "string",<br>
+&nbsp; "street_address_2": "string",<br>
+&nbsp; "city": "string",<br>
+&nbsp; "state": "string",<br>
+&nbsp; "pincode": 0,<br>
+&nbsp; "country": "string"<br>
+}</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#16a085;">7. DELETE /users/address/{id}/</span></p>
+
+<p>Returns a 204_No_Content response and deletes the address.</p>
+
+<p>&nbsp;</p>
+
+<p><span style="font-size:20px;"><span style="color: rgb(155, 89, 182);"><strong>Order Management API</strong></span></span><br>
+<span style="color:#16a085;"><span style="font-size: 20px;">Root API - /api/order_mgmt/</span></span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#16a085;">1. POST /order_mgmt/order/</span><br>
+This is created without any input , and the response is<br>
+{<br>
+&nbsp; "url": "http://example.com",<br>
+&nbsp; "user": 0,<br>
+&nbsp; "status": "C"<br>
+}</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#16a085;">2. GET /order_mgmt/order/</span></p>
+
+<p>List all orders<br>
+[<br>
+&nbsp; {<br>
+&nbsp;&nbsp;&nbsp; "url": "http://example.com",<br>
+&nbsp;&nbsp;&nbsp; "user": 0,<br>
+&nbsp;&nbsp;&nbsp; "status": "C"<br>
+&nbsp; }<br>
+]</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#16a085;">3. GET /order_mgmt/order/{id}/</span></p>
+
+<p>{<br>
+&nbsp; "url": "http://example.com",<br>
+&nbsp; "user": 0,<br>
+&nbsp; "status": "C"<br>
+}</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#16a085;">4. DELETE /order_mgmt/order/{id}/</span></p>
+
+<p>Delete the entire order for the user.</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#16a085;">5. GET /order_mgmt/orderitem/</span></p>
+
+<p>[<br>
+&nbsp; {<br>
+&nbsp;&nbsp;&nbsp; "url": "http://example.com",<br>
+&nbsp;&nbsp;&nbsp; "order": "http://example.com",<br>
+&nbsp;&nbsp;&nbsp; "item": "http://example.com",<br>
+&nbsp;&nbsp;&nbsp; "quantity": 0<br>
+&nbsp; }<br>
+]</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#16a085;">6. POST /order_mgmt/orderitem/</span><br>
+Request<br>
+{<br>
+&nbsp; "item": 1,<br>
+&nbsp; "quantity": 2<br>
+}</p>
+
+<p>Response<br>
+{<br>
+&nbsp; "url": "http://example.com",<br>
+&nbsp; "order": "http://example.com",<br>
+&nbsp; "item": "http://example.com",<br>
+&nbsp; "quantity": 2<br>
+}</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#16a085;">7. GET /order_mgmt/orderitem/{id}/</span></p>
+
+<p>{<br>
+&nbsp; "url": "http://example.com",<br>
+&nbsp; "order": "http://example.com",<br>
+&nbsp; "item": "http://example.com",<br>
+&nbsp; "quantity": 0<br>
+}</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#16a085;">8. PUT /order_mgmt/orderitem/{id}/</span><br>
+Request<br>
+{<br>
+&nbsp; "quantity": 2<br>
+}</p>
+
+<p>Response<br>
+{<br>
+&nbsp; "url": "http://example.com",<br>
+&nbsp; "order": "http://example.com",<br>
+&nbsp; "item": "http://example.com",<br>
+&nbsp; "quantity": 2<br>
+}</p>
+
+<p><br>
+<span style="color:#16a085;">9. DELETE /order_mgmt/orderitem/{id}/</span></p>
+
+<p>Deletes the book item associated to the order.</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#16a085;">10 GET /order_mgmt/shipment/</span></p>
+
+<p>[<br>
+&nbsp; {<br>
+&nbsp;&nbsp;&nbsp; "id": 0,<br>
+&nbsp;&nbsp;&nbsp; "user": 0,<br>
+&nbsp;&nbsp;&nbsp; "order": 0,<br>
+&nbsp;&nbsp;&nbsp; "address": 0<br>
+&nbsp; }<br>
+]</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#16a085;">11. POST /order_mgmt/shipment/</span></p>
+
+<p>Request<br>
+{<br>
+&nbsp; "order": 6,<br>
+&nbsp; "address": 2<br>
+}</p>
+
+<p>&nbsp;</p>
+
+<p>Response<br>
+{<br>
+&nbsp; "id": 1,<br>
+&nbsp; "user": 2,<br>
+&nbsp; "order": 6,<br>
+&nbsp; "address": 2<br>
+}</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#16a085;">12. GET /order_mgmt/shipment/{id}/</span></p>
+
+<p>{<br>
+&nbsp; "id": 1,<br>
+&nbsp; "user": 2,<br>
+&nbsp; "order": 6,<br>
+&nbsp; "address": 2<br>
+}</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#16a085;">13 PATCH /order_mgmt/shipment/{id}/</span></p>
+
+<p>Address can be updated<br>
+{<br>
+&nbsp; "address": 3<br>
+}</p>
+
+<p>Response<br>
+{<br>
+&nbsp; "id": 1,<br>
+&nbsp; "user": 2,<br>
+&nbsp; "order": 6,<br>
+&nbsp; "address": 3<br>
+}</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#16a085;">14 DELETE&nbsp; /order_mgmt/shipment/{id}/</span></p>
+
+<p>Deletes the specific shipment for the order.</p>
+</div></div></section></div>
