@@ -1,5 +1,5 @@
 
-from rest_framework.generics import ListAPIView, RetrieveAPIView
+from rest_framework.generics import ListAPIView, RetrieveAPIView, RetrieveUpdateDestroyAPIView
 
 from the_book_shop_api.inventory import models, serializers
 
@@ -45,8 +45,7 @@ class BookList(ListAPIView):
     serializer_class = serializers.BookSerializer
 
 
-class BookDetail(RetrieveAPIView):
+class BookDetail(RetrieveUpdateDestroyAPIView):
     serializer_class = serializers.BookSerializer
-
-    def get_queryset(self):
-        return models.Book.objects.get(pk=self.kwargs['pk'])
+    queryset = models.Book.objects.all()
+    

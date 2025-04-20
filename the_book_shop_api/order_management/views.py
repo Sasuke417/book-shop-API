@@ -3,7 +3,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.reverse import reverse
 from rest_framework import status
 from rest_framework.response import Response
-
+from django.utils.crypto import get_random_string
 from the_book_shop_api.order_management import models, serializers
 
 
@@ -36,21 +36,56 @@ class OrderDetail(RetrieveUpdateDestroyAPIView):
 
 class OrderItemList(ListCreateAPIView):
     serializer_class = serializers.OrderItemSerializer
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
-        return models.OrderItem.objects.all()
+        return models.OrderItem.objects.filter(
+            order__user=self.request.user,
+            order__status=models.Order.CART
+        )
 
     def create(self, request, *args, **kwargs):
-        if not request.data.get("order"):
+        # Get or create cart order for the user
+        
+        order, created = models.Order.objects.get_or_create(
+            user=request.user,
+            
+            defaults={ 'url': "https://www.django-rest-framework.org/"}  
+        )
+        
+        
+        item_id = request.data.get('item')
+        if not item_id:
+            return Response(
+                {"detail": "Item ID is required"},
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
-            request.data["order"] = models.Order.objects.get(pk=1)
-        print(models.Order.objects.all())
-        print(models.Order.objects.get(pk=1))
-        serializer = self.get_serializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        try:
+            # Check for existing item in cart
+            existing_item = models.OrderItem.objects.get(
+                order=order,
+                item_id=item_id
+            )
+            existing_item.quantity += 1
+            existing_item.save()
+            serializer = self.get_serializer(existing_item)
+            print("existing")
+            return Response(serializer.data, status=status.HTTP_200_OK)
+            
+        except models.OrderItem.DoesNotExist:
+            # Create new item in cart
+            data = {
+                'order': order.pk,
+                'item': item_id,
+                'quantity': 1
+            }
+            
+            serializer = self.get_serializer(data=data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_200_OK)
+            
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -58,8 +93,7 @@ class OrderItemDetail(RetrieveUpdateDestroyAPIView):
     serializer_class = serializers.OrderItemSerializer
     permission_classes = (IsAuthenticated, )
 
-    def get_queryset(self):
-        return models.OrderItem.objects.get(pk=self.kwargs['item_id'])
+    queryset = models.OrderItem.objects.all()
 
 
 class ShipmentList(ListCreateAPIView):
